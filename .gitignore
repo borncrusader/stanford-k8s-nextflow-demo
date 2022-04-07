@@ -1,2 +1,5 @@
 data/
 .*.swp
+.nextflow/
+.nextflow.*
+work/
