@@ -1,5 +1,7 @@
-data/
+data/CASP7/
+data/*.tar.gz
 .*.swp
 .nextflow/
 .nextflow.*
+nextflow
 work/
