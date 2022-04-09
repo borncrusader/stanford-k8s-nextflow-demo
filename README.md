@@ -22,7 +22,11 @@ using the
 test data for our demo. Please download this archive and uncompress the
 `.tar.gz` file in the `data/` directory. Alternatively, you can use the
 [scripts/00_download_data.sh](scripts/00_download_data.sh) to download and
-extract this data for you from the command line.
+extract this data for you from the command line like so
+
+```
+$ bash scripts/00_download_data.sh
+```
 
 ## Nextflow
 ### Steps
@@ -32,4 +36,8 @@ extract this data for you from the command line.
 ### Steps
 
 ## Credits
-1. This demo uses [MiniFold](https://github.com/hypnopump/MiniFold
+1. This demo uses [MiniFold](https://github.com/hypnopump/MiniFold) and we're
+   indebted to this project for making the scripts available.
+2. We're hugely indebted to
+   [proteinnet](https://github.com/aqlaboratory/proteinnet) for their amazing
+   CASP7 database.
