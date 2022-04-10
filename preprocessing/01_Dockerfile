@@ -1,0 +1,17 @@
+FROM ghcr.io/borncrusader/stanford-k8s-nextflow-demo-base:latest
+
+RUN mkdir /home/demouser/preprocessing
+
+# Add files
+ADD preprocessing/01_get_angles_from_coords.py /home/demouser/preprocessing/
+
+# Add common
+EXPOSE 5000/tcp
+
+ADD util/run_and_monitor.py /home/demouser
+
+VOLUME /home/demouser/data
+
+WORKDIR /home/demouser/preprocessing
+
+ENTRYPOINT ["python3", "/home/demouser/run_and_monitor.py", "python3 01_get_angles_from_coords.py"]
