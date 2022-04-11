@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pp-02
+spec:
+  containers:
+  - name: pp-02
+    image: ghcr.io/borncrusader/stanford-k8s-nextflow-demo-pp-02:latest
+    imagePullPolicy: Always
+    volumeMounts:
+    - name: data
+      mountPath: /home/demouser/data
+    ports:
+    - containerPort: 5000
+  volumes:
+  - name: data
+    hostPath:
+      path: /data
+      type: Directory
