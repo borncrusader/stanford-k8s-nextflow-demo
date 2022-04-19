@@ -22,7 +22,8 @@ likely you have already.
    If you're using Linux, you might want to install docker from your distro's
    package registry instead of installing Docker Desktop.
 2. Install [Nextflow](https://www.nextflow.io) following the steps in their
-   homepage.
+   homepage. It's helpful to install this inside the cloned directory of this
+   git repository.
 3. Install [Minikube](https://minikube.sigs.k8s.io/docs/start/) following the
    link.
 4. Follow the steps [here](https://minikube.sigs.k8s.io/docs/drivers/docker/)
@@ -44,12 +45,41 @@ extract this data for you from the command line like so
 $ bash scripts/00_download_data.sh
 ```
 
-## Nextflow
-### Steps
+## Steps
+1. Ensure all dependencies are installed and start Docker Desktop (not required
+   on Linux).
+2. Start minikube server. You can confirm if minikube is running with the
+   `minikube status` command.
+```
+$ minikube start
+$ minikube status
+minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
 
-
-## Minikube
-### Steps
+```
+3. Clone the github repo and changed into the directory
+```
+$ git clone https://github.com/borncrusader/stanford-k8s-nextflow-demo
+```
+4. Make `data` directory mountable inside container. This command will not
+   exit and will block. **This is only required if
+   you're running MacOS or Windows.**
+```
+$ minikube mount $PWD/data:/data
+```
+5. Make sure you have installed Nexflow in the current directory. You should
+   have a file called `nextflow` if you have done this.
+6. In a new terminal window, you can start the nextflow process
+```
+./nextflow run ./nf/main.nf --in $PWD
+```
+7. This step should take 5-10 mins to run. Once it's done, you should see the
+   prepared angles in a plot in the `data/` directory.
 
 ## Credits
 1. This demo uses [MiniFold](https://github.com/hypnopump/MiniFold) and we're
