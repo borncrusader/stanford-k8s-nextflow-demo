@@ -192,7 +192,10 @@ plt.xlim(-np.pi, np.pi)
 plt.ylim(-np.pi, np.pi)
 plt.xlabel("Phi")
 plt.ylabel("Psi")
-plt.savefig('../data/distribution.png')
+try:
+    plt.savefig('../data/distribution.png')
+except e as Exception:
+    print('got error when saving file')
 #plt.show()
 
 
